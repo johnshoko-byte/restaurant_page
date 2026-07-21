@@ -1,4 +1,371 @@
-/* styles.css */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #fdfffc;
+    --secondary-bg: #f4f4f4;
+    --primary: #ae8658;
+    --primary-dark: #8d6840;
+    --accent: #80814f;
+    --subtle: #fff8f0;
+    --text: #33291f;
+    --border: rgba(174, 134, 88, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: rebeccapurple;
+    margin: 0;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: min(1200px, calc(100% - 40px));
+    margin: 16px auto;
+    padding: 12px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo h1 {
+    margin: 0;
+    color: var(--primary);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.7rem;
+    letter-spacing: 0.5px;
+}
+
+.logo svg {
+    width: 42px;
+    height: 42px;
+    fill: var(--primary);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav>button {
+    position: relative;
+    padding: 10px 14px;
+
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    background-color: white;
+
+    border-radius: 8px;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+nav>button:hover {
+    color: var(--primary-dark);
+    background-color: var(--subtle);
+    transform: translateY(-2px);
+}
+
+nav>button::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 5px;
+
+    height: 2px;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+
+nav>button:hover::after,
+nav>button.active::after {
+    transform: scaleX(1);
+}
+
+header>button {
+    padding: 11px 18px;
+
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+
+    background-color: var(--primary);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    box-shadow: 0 5px 14px rgba(174, 134, 88, 0.25);
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+header>button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(174, 134, 88, 0.35);
+}
+
+nav>button:focus-visible,
+header>button:focus-visible {
+    outline: 3px solid rgba(128, 129, 79, 0.4);
+    outline-offset: 3px;
+}
+
+#content {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+
+    width: min(1200px, calc(100% - 40px));
+    min-height: calc(100vh - 100px);
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+/* LEFT SIDE */
+
+.left {
+    flex: 1;
+    max-width: 620px;
+}
+
+.left h1 {
+    margin: 0 0 1.5rem;
+
+    color: var(--text);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3rem, 6vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -3px;
+}
+
+.left p {
+    max-width: 550px;
+    margin: 0 0 2rem;
+
+    color: var(--subtext);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* BUTTONS */
+
+.left button {
+    padding: 0.9rem 1.6rem;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+
+    border: 2px solid transparent;
+    border-radius: 12px 4px;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.left button:hover {
+    transform: translateY(-3px);
+}
+
+.left button:active {
+    transform: translateY(0);
+}
+
+.menu-btn {
+    margin-right: 0.75rem;
+    color: white;
+    background-color: var(--primary);
+    box-shadow: 0 8px 20px rgba(174, 134, 88, 0.25);
+}
+
+.menu-btn:hover {
+    background-color: #906b43;
+    box-shadow: 0 12px 25px rgba(174, 134, 88, 0.35);
+}
+
+.reserve-btn {
+    color: var(--accent);
+    background-color: transparent;
+    border-color: var(--accent);
+}
+
+.reserve-btn:hover {
+    color: white;
+    background-color: var(--accent);
+}
+
+.right {
+    position: relative;
+    flex: 0 1 470px;
+    padding: 0 0 3.5rem 3rem;
+}
+
+.right::before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    z-index: -1;
+
+    width: 80%;
+    height: 80%;
+
+    background-color: var(--subtle);
+    border-radius: 70px 15px;
+}
+
+.restaurant {
+    display: block;
+    width: 100%;
+    height: min(580px, 68vh);
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 70px 15px;
+    box-shadow: 0 25px 50px rgba(51, 41, 31, 0.18);
+}
+
+.dish {
+    position: absolute;
+    left: -20px;
+    bottom: 0;
+
+    width: 200px;
+    height: 200px;
+
+    background-image: url("img/dish.webp");
+    background-size: 143%;
+
+    background-position: -39px -128px;
+    background-repeat: no-repeat;
+
+    border-radius: 50%;
+    box-shadow: 0 15px 30px rgba(51, 41, 31, 0.22);
+}
+
+@media (max-width: 900px) {
+    #content {
+        flex-direction: column;
+        gap: 4rem;
+        min-height: auto;
+        padding-top: 3rem;
+        text-align: center;
+    }
+
+    .left p {
+        margin-inline: auto;
+    }
+
+    .right {
+        width: min(100%, 550px);
+        padding-left: 2rem;
+    }
+
+    .restuarant {
+        height: 500px;
+    }
+}
+
+@media (max-width: 550px) {
+    #content {
+        width: 100%;
+        padding: 2.5rem 1.25rem;
+    }
+
+    .left h1 {
+        font-size: clamp(2.7rem, 13vw, 3.8rem);
+        letter-spacing: -1.5px;
+    }
+
+    .left p {
+        font-size: 1rem;
+    }
+
+    .left button {
+        display: block;
+        width: 100%;
+    }
+
+    .menu-btn {
+        margin: 0 0 0.8rem;
+    }
+
+    .right {
+        padding: 0 0 2.5rem 1rem;
+    }
+
+    .restuarant {
+        height: 420px;
+        border-radius: 45px 12px;
+    }
+
+    .dish {
+        left: -5px;
+        width: 145px;
+        border-width: 7px;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        width: calc(100% - 24px);
+        padding: 10px 14px;
+    }
+
+    .logo h1 {
+        font-size: 1.35rem;
+    }
+
+    .logo svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    header>button {
+        padding: 9px 13px;
+        font-size: 0.9rem;
+    }
 }
