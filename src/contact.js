@@ -1,3 +1,5 @@
+import loadHomePage from "./home.js";
+
 function createContactDetail(title, text) {
     const detail = document.createElement("div");
     detail.classList.add("contact-detail");
@@ -13,11 +15,9 @@ function createContactDetail(title, text) {
     return detail;
 }
 
-function loadContactPage() {
-    const content = document.querySelector("#content");
-
-    const contactPage = document.createElement("main");
-    contactPage.classList.add("contact-page");
+function createContactSection() {
+    const contactSection = document.createElement("div");
+    contactSection.classList.add("contact-section");
 
     const heading = document.createElement("h1");
     heading.textContent = "Visit Us";
@@ -96,14 +96,13 @@ function loadContactPage() {
         submitButton
     );
 
-    contactPage.append(
+    contactSection.append(
         heading,
         intro,
         contactCard,
         form
     );
-
-    content.append(contactPage);
+    return contactSection;
 }
 
-export default loadContactPage;
+export default createContactSection;

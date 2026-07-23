@@ -1,9 +1,27 @@
-function createMenuItem(name, description, price) {
+import {
+    english,
+    avocado,
+    french,
+    burger,
+    cappuccino,
+    garden,
+    latte,
+    lemonade,
+    pasta
+} from "./menuImages.js";
+
+
+
+function createMenuItem(name, price, image) {
     const menuItem = document.createElement("article");
     menuItem.classList.add("menu-item");
 
     const itemHeader = document.createElement("div");
     itemHeader.classList.add("menu-item-header");
+
+    const itemImage = document.createElement("img");
+    itemImage.src = image;
+    itemImage.alt = name;
 
     const itemName = document.createElement("h3");
     itemName.textContent = name;
@@ -11,11 +29,8 @@ function createMenuItem(name, description, price) {
     const itemPrice = document.createElement("span");
     itemPrice.textContent = price;
 
-    const itemDescription = document.createElement("p");
-    itemDescription.textContent = description;
-
     itemHeader.append(itemName, itemPrice);
-    menuItem.append(itemHeader, itemDescription);
+    menuItem.append(itemImage, itemHeader);
 
     return menuItem;
 }
@@ -43,18 +58,18 @@ function loadMenuPage() {
     breakfastGrid.append(
         createMenuItem(
             "Classic Breakfast",
-            "Eggs, toast, grilled tomato, mushrooms and breakfast potatoes.",
-            "R95"
+            "R95",
+            english
         ),
         createMenuItem(
             "Avocado Toast",
-            "Sourdough toast topped with avocado, feta and poached eggs.",
-            "R85"
+            "R85",
+            avocado
         ),
         createMenuItem(
             "French Toast",
-            "Brioche, fresh berries, cinnamon and maple syrup.",
-            "R78"
+            "R78",
+            french
         )
     );
 
@@ -67,18 +82,18 @@ function loadMenuPage() {
     mainsGrid.append(
         createMenuItem(
             "Harvest Burger",
-            "Beef patty, cheddar, caramelised onions and house sauce.",
-            "R125"
+            "R125",
+            burger
         ),
         createMenuItem(
             "Creamy Chicken Pasta",
-            "Grilled chicken, parmesan and herbs in a creamy sauce.",
-            "R135"
+            "R135",
+            pasta
         ),
         createMenuItem(
             "Garden Bowl",
-            "Roasted vegetables, grains, avocado and herb dressing.",
-            "R110"
+            "R110",
+            garden
         )
     );
 
@@ -91,18 +106,18 @@ function loadMenuPage() {
     drinksGrid.append(
         createMenuItem(
             "Cappuccino",
-            "Espresso with steamed milk and a smooth layer of foam.",
-            "R38"
+            "R38",
+            cappuccino
         ),
         createMenuItem(
             "Iced Latte",
-            "Espresso, chilled milk and ice.",
-            "R42"
+            "R42",
+            latte
         ),
         createMenuItem(
             "Fresh Lemonade",
-            "House-made lemonade served over ice.",
-            "R35"
+            "R35",
+            lemonade
         )
     );
 

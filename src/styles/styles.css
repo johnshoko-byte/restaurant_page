@@ -1,0 +1,168 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #fdfffc;
+    --secondary-bg: #f4f4f4;
+    --primary: #ae8658;
+    --primary-dark: #8d6840;
+    --accent: #80814f;
+    --subtle: #fff8f0;
+    --text: #33291f;
+    --border: rgba(174, 134, 88, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    margin: 16px auto;
+    padding: 12px 112px;
+    transition:
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo h1 {
+    margin: 0;
+    color: var(--primary);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.7rem;
+    letter-spacing: 0.5px;
+}
+
+.logo svg {
+    width: 42px;
+    height: 42px;
+    fill: var(--primary);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav>button {
+    position: relative;
+    padding: 10px 14px;
+
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    background-color: white;
+
+    border-radius: 8px;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+nav>button:hover {
+    color: var(--primary-dark);
+    background-color: var(--subtle);
+    transform: translateY(-2px);
+}
+
+nav>button::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 5px;
+
+    height: 2px;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+
+nav>button:hover::after,
+nav>button.active::after {
+    transform: scaleX(1);
+}
+
+header>button {
+    padding: 11px 18px;
+
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+
+    background-color: var(--primary);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    box-shadow: 0 5px 14px rgba(174, 134, 88, 0.25);
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+header>button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(174, 134, 88, 0.35);
+}
+
+nav>button:focus-visible,
+header>button:focus-visible {
+    outline: 3px solid rgba(128, 129, 79, 0.4);
+    outline-offset: 3px;
+}
+
+header.scrolled {
+    background-color: rgba(253, 255, 252, 0.2);
+    border-bottom: 1px solid rgba(174, 134, 88, 0.25);
+    box-shadow: 0 8px 25px rgba(51, 41, 31, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+#content {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+
+    width: min(1200px, calc(100% - 40px));
+    min-height: calc(100vh - 100px);
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+}
