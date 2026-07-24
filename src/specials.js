@@ -1,5 +1,7 @@
 import steak from "./img/menu/steak.jpg";
-
+import duck from "./img/menu/duck.jpg";
+import lambFillet from "./img/menu/LambFillet.jpg";
+import porkMedallions from "./img/menu/porkMedallions.jpg";
 
 function createSpecial(name, image, price) {
     const item = document.createElement("div");
@@ -44,6 +46,10 @@ function createSpecialsSection() {
     specialsSection.className = "specials-section";
 
     const item1 = createSpecial("Steak And Fries", steak, "R120");
+    const item2 = createSpecial("Duck", duck, "R135");
+    const item3 = createSpecial("Lamb Fillet", lambFillet, "R150");
+    const item4 = createSpecial("Pork Medallions", porkMedallions, "R145");
+
     container.append(
         leftArrow,
         specialsList,
@@ -52,7 +58,10 @@ function createSpecialsSection() {
 
     specialsSection.append(container);
     specialsSection.append(
-        item1
+        item1,
+        item2,
+        item3,
+        item4
     );
 
     return specialsSection;

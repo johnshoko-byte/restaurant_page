@@ -122,13 +122,13 @@ function loadHomePage() {
     homePage.classList.add("home-page");
 
     const heroSection = createHeroSection();
-    const specialsSection = createSpecialsSection();
+    // const specialsSection = createSpecialsSection();
     const aboutSection = createAboutSection();
     const contactSection = createContactSection();
 
     homePage.append(
         heroSection,
-        specialsSection,
+        // specialsSection,
         aboutSection,
         contactSection
     );
