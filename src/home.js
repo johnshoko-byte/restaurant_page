@@ -3,6 +3,7 @@ import aboutSrc from "./img/about.webp";
 import loadMenuPage from "./menu.js";
 
 import createContactSection from "./contact.js";
+import createSpecialsSection from "./specials.js";
 
 function createAboutSection() {
     const aboutSection = document.createElement("section");
@@ -51,6 +52,7 @@ function createAboutSection() {
 function createHeroSection() {
     const heroSection = document.createElement("section");
     heroSection.classList.add("hero-section");
+    heroSection.id = "hero-section";
 
     const leftSection = document.createElement("div");
     leftSection.classList.add("left");
@@ -120,11 +122,13 @@ function loadHomePage() {
     homePage.classList.add("home-page");
 
     const heroSection = createHeroSection();
+    const specialsSection = createSpecialsSection();
     const aboutSection = createAboutSection();
     const contactSection = createContactSection();
 
     homePage.append(
         heroSection,
+        specialsSection,
         aboutSection,
         contactSection
     );

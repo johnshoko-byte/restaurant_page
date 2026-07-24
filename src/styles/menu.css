@@ -8,7 +8,7 @@
 .menu-page>h1,
 .contact-page>h1 {
     margin: 0;
-    color: var(--text);
+    /* color: var(--text); */
     font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(2.8rem, 6vw, 4.5rem);
     text-align: center;

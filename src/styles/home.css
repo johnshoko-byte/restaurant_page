@@ -10,6 +10,10 @@
 
 }
 
+#hero-section {
+    scroll-margin-top: 100px;
+}
+
 .left {
     flex: 1;
     max-width: 620px;
